@@ -1,17 +1,4 @@
-// function formatDate(date) {
-//   const options = {
-//     weekday: 'short',
-//     day: 'numeric',
-//     month: 'short',
-//     year: 'numeric',
-//     hour: 'numeric',
-//     minute: 'numeric',
-//     second: 'numeric',
-//     timeZone: 'GMT',
-//   };
-//   return date.toLocaleString('en-US', options);
-// }
-
+// gets date in unix and utc formats
 const getDate = (req, res) => {
   const dateParam = req.params.date;
 
@@ -26,6 +13,7 @@ const getDate = (req, res) => {
     date = new Date(dateParam);
   }
 
+// handles invalid date params
   if (date.toString() === 'Invalid Date') {
     return res.status(400).json({ error: 'Invalid Date' });
   }

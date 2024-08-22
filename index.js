@@ -19,9 +19,10 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// your first API endpoint...
+// returns current date as json object in utc and unix formats
 app.get('/api', getCurrentDate);
 
+// returns date gotten from date param as json object in unix and utc formats
 app.get('/api/:date', getDate);
 
 // Listen on port set in environment variable or default to 3000
